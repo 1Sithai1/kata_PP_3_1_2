@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<link rel="stylesheet" href="/styleUsers.css" th:href="@{../static/styleUsers.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о пользователе</title>
+</head>
+<body class="bodyEdit">
+<form th:method="PATCH" th:action="@{/admin/{id}(id=${users.getId()})}" th:object="${users}">
+    <table>
+        <tbody>
+        <tr>
+            <td><label for="username">Имя пользователя: </label></td>
+
+            <td><input type="text" th:field="*{username}" id="username"/></td>
+
+            <td><p style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">test</p></td>
+        </tr>
+        <tr>
+            <td><label for="name">Имя: </label></td>
+
+            <td><input type="text" th:field="*{name}" id="name"/></td>
+
+            <td><p style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p></td>
+        </tr>
+        <tr>
+            <td><label for="lastname">Фамилия: </label></td>
+
+            <td><input type="text" th:field="*{lastName}" id="lastname"/></td>
+
+            <td><p style="color: red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p></td>
+        </tr>
+        <tr>
+            <td><label for="email">email: </label></td>
+
+            <td><input type="text" th:field="*{email}" id="email"/></td>
+
+            <td><p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p></td>
+        </tr>
+        <tr>
+            <td><label for="password">password: </label>
+                <input type="hidden" th:field="*{password}"/>
+            </td>
+
+            <td><input type="text" id="password"/></td>
+
+            <td><p style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p></td>
+        </tr>
+        <tr>
+            <td>
+<!--                Так и не заработало (-->
+<!--                <th:block th:each="role: ${roleList}">-->
+<!--                    <input type="checkbox" th:field="*{roles}"-->
+<!--                           th:text="${role.name}" th:value="${role.name}" class="m-2"/>-->
+<!--                </th:block>-->
+                <select size="2" name="role" multiple>
+                    <option th:each="role : ${roleList}"
+                            th:field="*{roles}"
+                            th:value="${role.name}"
+                            th:text="${role.name}">
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Готово"/>
+            </td>
+            <td>
+                <input type="button" th:value="Отмена" onclick="window.location.href = '/admin'">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

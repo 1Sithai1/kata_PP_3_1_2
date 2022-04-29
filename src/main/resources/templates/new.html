@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<link rel="stylesheet" href="/styleUsers.css" th:href="@{../static/styleUsers.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>Новый пользователь</title>
+</head>
+<body class="bodyNew">
+<form th:method="POST" th:action="@{/}" th:object="${users}">
+    <h2>Новый пользователь</h2>
+    <br/>
+    <table>
+        <tbody>
+        <tr>
+            <td><label for="username">Имя пользователя: </label></td>
+
+            <td><input type="text" th:field="*{username}" id="username"/></td>
+
+            <td><p style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">test</p></td>
+        </tr>
+        <tr>
+            <td><label for="name">Имя: </label></td>
+
+            <td><input type="text" th:field="*{name}" id="name"/></td>
+
+            <td><p style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">test</p></td>
+        </tr>
+        <tr>
+            <td><label for="lastname">Фамилия: </label></td>
+
+            <td><input type="text" th:field="*{lastName}" id="lastname"/></td>
+
+            <td><p style="color: red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">test</p></td>
+        </tr>
+        <tr>
+            <td><label for="email">email: </label></td>
+
+            <td><input type="text" th:field="*{email}" id="email"/></td>
+
+            <td><p style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">test</p></td>
+        </tr>
+        <tr>
+            <td><label for="password">password: </label></td>
+
+            <td><input type="password" th:field="*{password}" id="password"/></td>
+
+            <td><p style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">test</p></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Создать"/>
+            </td>
+            <td>
+                <input type="button" th:value="Отмена" onclick="window.location.href = '/admin'">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

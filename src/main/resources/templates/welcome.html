@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="/styleUsers.css" th:href="@{../static/styleUsers.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости</title>
+</head>
+<body>
+<table class="welcome">
+    <td>
+        <h2>Добро пожаловать <span th:text="${user.name}"></span></h2>
+    </td>
+    <tr th:object="${user}">
+        <td>
+            <input type="button" th:value="Выйти" onclick="window.location.href = '/logout'">
+            <div sec:authorize="hasRole('ROLE_ADMIN')">
+                <input type="button" th:value="Admin" onclick="window.location.href = '/admin'">
+            </div>
+            <form th:action="@{/userInfo/{username}(username = ${user.getUsername()})}">
+                <input type="submit" value="Профиль"/>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

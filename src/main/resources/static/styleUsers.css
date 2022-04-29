@@ -1,0 +1,47 @@
+/*Стиль таблицы пользователей*/
+.table {
+    width: 50%;
+    margin-bottom: 20px;
+    border: 15px solid #F2F8F8;
+    border-top: 5px solid #F2F8F8;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+.table th {
+    font-weight: bold;
+    padding: 5px;
+    background: #F2F8F8;
+    border: none;
+    border-bottom: 5px solid #F2F8F8;
+}
+.table td {
+    padding: 5px;
+    border: none;
+    border-bottom: 5px solid #F2F8F8;
+}
+.centre {
+    width: 100%;
+    text-align: center
+}
+/*Стиль формы нового пользователя*/
+.bodyNew {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+/*Стиль формы обновления пользователя*/
+.bodyEdit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+/*Стиль страницы Welcome*/
+.welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
